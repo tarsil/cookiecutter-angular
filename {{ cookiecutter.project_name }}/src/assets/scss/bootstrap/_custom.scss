@@ -1,0 +1,54 @@
+// Your variable overrides
+
+$primary: #0976bd;
+// $papermint: #f4f4f4;
+// $aquaisland: #a8dadc;
+// $wedgewood: #457b9d;
+// $cello: #1d3557;
+// $deepcerulean: #0077b6;
+// $pacificblue: #0096c7;
+// $cerulean: #00b4d8;
+// $bordeux: #880e4f;
+
+$custom-colors: (
+  'lochmara':     $primary,
+  // 'papermint':    $papermint,
+  // 'aquaisland':   $aquaisland,
+  // 'wedgewood':    $wedgewood,
+  // 'cello':        $cello,
+  // 'deepcerulean': $deepcerulean,
+  // 'pacificblue':  $pacificblue,
+  // 'cerulean':     $cerulean,
+  // 'bordeux':      $bordeux
+);
+
+// // set new colors
+$primary: $primary;
+// $danger:  $bordeux;
+// $info:    $deepcerulean;
+// $dirty-white: $papermint;
+
+$theme-colors: (
+  "primary":  $primary,
+  // "danger":   $danger,
+  // "info":     $info,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// borders
+$border-radius:               0;
+$border-radius-sm:            0;
+$border-radius-lg:            0;
+$border-radius-pill:          0;
+
+// remove the default focus from bootstrap
+$btn-focus-box-shadow: none;
+$input-btn-focus-width:         0;
+$input-btn-focus-box-shadow: none;
+$input-btn-focus-width: 0;
+$input-btn-focus-color-opacity: 0;
+
+// Import bootstrap latest
+// @import 'bootstrap';
+@import "~bootstrap/scss/bootstrap.scss"
