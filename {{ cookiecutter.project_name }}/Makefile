@@ -42,4 +42,4 @@ deploy-github-page: ## If you want to deploy to a Github page you can do the fol
 
 .PHONY: requirements
 requirements: ## Run the end to end tests on local
-	npm i
+	npm i --legacy-peer-deps
