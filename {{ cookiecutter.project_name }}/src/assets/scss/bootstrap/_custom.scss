@@ -1,37 +1,36 @@
 // Your variable overrides
-
-$primary: #0976bd;
-// $papermint: #f4f4f4;
-// $aquaisland: #a8dadc;
-// $wedgewood: #457b9d;
-// $cello: #1d3557;
-// $deepcerulean: #0077b6;
-// $pacificblue: #0096c7;
-// $cerulean: #00b4d8;
-// $bordeux: #880e4f;
+$papermint: #f4f4f4;
+$torch-red: #F50537;
+$shark: #0A090C;
+$soft-gray: #cacedb;
+$fogra: #0A090C;
+$isabeline: #F0EDEE;
+$rich-black: #07393C;
+$ming: #2C666E;
+$middle-blue: #90DDF0;
 
 $custom-colors: (
-  'lochmara':     $primary,
-  // 'papermint':    $papermint,
-  // 'aquaisland':   $aquaisland,
-  // 'wedgewood':    $wedgewood,
-  // 'cello':        $cello,
-  // 'deepcerulean': $deepcerulean,
-  // 'pacificblue':  $pacificblue,
-  // 'cerulean':     $cerulean,
-  // 'bordeux':      $bordeux
+  'papermint':    $papermint,
+  'torch-red': 	$torch-red,
+  'shark': 		$shark,
+  'soft-gray': $soft-gray,
+  'fogra': $fogra,
+  'isabeline': $isabeline,
+  'rich-black': $rich-black,
+  'ming': $ming,
+  'middle-blue': $middle-blue,
 );
 
-// // set new colors
-$primary: $primary;
-// $danger:  $bordeux;
-// $info:    $deepcerulean;
-// $dirty-white: $papermint;
+// set new colors
+$primary: $ming;
+$danger:  $torch-red;
+$info:    $middle-blue;
+$dirty-white: $papermint;
 
 $theme-colors: (
   "primary":  $primary,
-  // "danger":   $danger,
-  // "info":     $info,
+  "danger":   $danger,
+  "info":     $info,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
@@ -51,4 +50,4 @@ $input-btn-focus-color-opacity: 0;
 
 // Import bootstrap latest
 // @import 'bootstrap';
-@import "~bootstrap/scss/bootstrap.scss"
+@import "~bootstrap/scss/bootstrap.scss";
