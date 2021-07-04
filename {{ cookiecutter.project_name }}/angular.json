@@ -65,6 +65,33 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
             }
           }
         },
@@ -76,6 +103,9 @@
           "configurations": {
             "production": {
               "browserTarget": "{{ cookiecutter.project_name }}:build:production"
+            },
+            "dev": {
+              "browserTarget": "{{ cookiecutter.project_name }}:build:dev"
             }
           }
         },
@@ -124,6 +154,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "{{ cookiecutter.project_name }}:serve:production"
+            },
+            "dev": {
+              "devServerTarget": "{{ cookiecutter.project_name }}:serve:dev"
             }
           }
         }
