@@ -4,6 +4,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
+  { path: 'home', redirectTo: '/' },
+  { path: 'login', redirectTo: '/' },
   { path: '**', redirectTo: '/' }
 ];
 

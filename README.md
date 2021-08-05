@@ -4,6 +4,9 @@ We all struggle to start a project with angular and bootstrap.
 This cookiecutter aims only to speedup that same start with a
 given structure of folders.
 
+This cookiecutter offers functionalities such as connecting with JWT
+and more that can be reused as needed, don't feel compeled to use exactly like this.
+
 ## Table of Contents
 
 ---

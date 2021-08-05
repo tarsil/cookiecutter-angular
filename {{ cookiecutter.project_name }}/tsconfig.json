@@ -9,7 +9,8 @@
       "@modules/*": ["src/app/modules/*"],
       "@configs/*": ["src/app/configs/*"],
       "@shared/*": ["src/app/shared/*"],
-      "@assets/*": ["src/app/assets/*"]
+      "@assets/*": ["src/app/assets/*"],
+      "@environments/*": ["src/environments/*"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
