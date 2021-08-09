@@ -1,4 +1,4 @@
-# Cookiecutter Angular + Bootstrap 4.6
+# Cookiecutter Angular + Bootstrap 5
 
 We all struggle to start a project with angular and bootstrap.
 This cookiecutter aims only to speedup that same start with a
