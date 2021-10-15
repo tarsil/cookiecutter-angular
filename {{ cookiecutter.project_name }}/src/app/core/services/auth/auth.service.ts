@@ -4,20 +4,19 @@ import * as moment from 'moment';
 import { JWTPayload } from '@app/core/interfaces/common';
 import { HttpClient } from '@angular/common/http';
 import { tap, shareReplay } from 'rxjs/operators';
-import { map } from 'rxjs/operators';
+import { environment } from '@environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private is_token_valid: boolean = false;
-  private is_token_refresh_valid: boolean = false;
+  readonly baseURL: string = environment.apiUrl;
   readonly TOKEN_NAME: string = 'token';
   readonly REFRESH_TOKEN_NAME: string = 'refresh';
 
   constructor(private http: HttpClient) { }
 
-  private setSession(authResult) {
+  private setSession(authResult: any) {
     const token = authResult.access;
     const payload = <JWTPayload> jwt_decode(token);
     const expiresAt = moment.unix(payload.exp);
@@ -25,7 +24,7 @@ export class AuthService {
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
   }
 
-  private setRefreshSession(authResult) {
+  private setRefreshSession(authResult: any) {
     const refresh = authResult.refresh;
     const payload = <JWTPayload> jwt_decode(refresh);
     const expiresAt = moment.unix(payload.exp);
@@ -33,16 +32,16 @@ export class AuthService {
     localStorage.setItem('refresh_expires_at', JSON.stringify(expiresAt.valueOf()));
   }
 
-  get token(): string {
+  get token(): string | null {
     return localStorage.getItem('token');
   }
 
-  get tokenRefresh(): string {
+  get tokenRefresh(): string | null {
     return localStorage.getItem('refresh');
   }
 
   login(email: string, password: string) {
-    return this.http.post('/auth/api/token', {email: email, password: password})
+    return this.http.post(`${this.baseURL}/auth/api/token`, {email: email, password: password})
     .pipe(
       tap(response => this.setSession(response)),
       shareReplay()
@@ -52,7 +51,7 @@ export class AuthService {
   }
 
   refreshToken() {
-    return this.http.post('/auth/api/token/refresh', { refresh: this.tokenRefresh }
+    return this.http.post(`${this.baseURL}/auth/api/token/refresh`, { refresh: this.tokenRefresh }
     ).pipe(
       tap(response => this.setSession(response)),
       shareReplay(),
@@ -66,54 +65,14 @@ export class AuthService {
     localStorage.removeItem('refresh_expires_at');
   }
 
-
-  // private is_token_valid: boolean = false;
-  // private is_token_refresh_valid: boolean = false;
-  // readonly TOKEN_NAME: string = 'token';
-  // readonly REFRESH_TOKEN_NAME: string = 'refresh';
-
-  // private setTokenValid(result){
-  //   if(Object.keys(result).length === 0){
-  //     this.is_token_valid = true;
-  //   } else {
-  //     this.is_token_valid = false;
-  //   }
-  // }
-
-  // private setTokenRefreshValid(result){
-  //   if(Object.keys(result).length === 0){
-  //     this.is_token_refresh_valid = true;
-  //   } else {
-  //     this.is_token_refresh_valid = false;
-  //   }
-  // }
-
-  // verifyToken() {
-  //   const token: string = localStorage.getItem('token');
-  //   return this.http.post('/auth/api/token/verify', { token: token })
-  //   .pipe(
-  //     tap(response => this.setTokenValid(response)),
-  //     shareReplay()
-  //   ).subscribe();
-  // }
-
-  // verifyRefreshToken() {
-  //   const refresh: string = localStorage.getItem('refresh');
-  //   return this.http.post('/auth/api/token/verify', { token: refresh })
-  //   .pipe(
-  //     tap(response => this.setTokenRefreshValid(response)),
-  //     shareReplay()
-  //   ).subscribe();
-  // }
-
   getExpiration() {
-    const expiration = localStorage.getItem('expires_at');
+    const expiration: any = localStorage.getItem('expires_at');
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);
   }
 
   getRefreshExpiration() {
-    const expiration = localStorage.getItem('refresh_expires_at');
+    const expiration: any = localStorage.getItem('refresh_expires_at');
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);
   }
@@ -134,24 +93,7 @@ export class AuthService {
     return !this.isLoggedIn();
   }
 
-  // isTokenValid() {
-  //   debugger;
-  //  if(!this.is_token_valid) {
-  //    this.verifyToken();
-  //  }
-
-  //  return this.is_token_valid;
-  // }
-
-  // isTokenRefreshValid() {
-  //   if(!this.is_token_refresh_valid) {
-  //     this.verifyRefreshToken();
-  //   }
-
-  //   return this.is_token_refresh_valid;
-  // }
-
-  getToken(tokenName): string {
+  getToken(tokenName: string): string | null {
     return localStorage.getItem(tokenName);
   }
 
