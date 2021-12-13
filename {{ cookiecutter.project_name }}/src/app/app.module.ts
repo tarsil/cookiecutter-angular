@@ -26,7 +26,9 @@ import { LoginGuard } from './core/guards/auth/login.guard';
     AppRoutingModule,
     CommonModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(), // ToastrModule added,
+    ToastrModule.forRoot({
+      preventDuplicates: true
+    }),
     NgxSpinnerModule,
     HttpClientModule,
     FormsModule,
