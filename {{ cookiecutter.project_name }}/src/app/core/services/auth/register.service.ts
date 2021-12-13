@@ -9,7 +9,7 @@ export class RegisterService {
 
   constructor(private http: HttpClient) { }
 
-  register(first_name, last_name, email, password, retype_password) {
+  register(first_name: string, last_name: string, email: string, password: string, retype_password: string) {
     let url = encodeURI(`${environment.apis.v1}/accounts/auth/signup`);
 
     return this.http.post(url, {
