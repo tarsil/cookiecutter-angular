@@ -1,36 +1,31 @@
 // Your variable overrides
-$papermint: #f4f4f4;
-$torch-red: #F50537;
+$amaranth: #F50537;
+$peppermint: #F1FAEE;
+$aqua-island: #A8DADC;
+$wedgewood: #457B9D;
+$cello: #1D3557;
 $shark: #0A090C;
-$soft-gray: #cacedb;
-$fogra: #0A090C;
-$isabeline: #F0EDEE;
-$rich-black: #07393C;
-$ming: #2C666E;
-$middle-blue: #90DDF0;
+$silver-tree: #52B788;
 
 $custom-colors: (
-  'papermint':    $papermint,
-  'torch-red': 	$torch-red,
+  'amaranth': 	$amaranth,
+  'peppermint': 	$peppermint,
+  'aqua-island': 	$aqua-island,
+  'cello': 	$cello,
   'shark': 		$shark,
-  'soft-gray': $soft-gray,
-  'fogra': $fogra,
-  'isabeline': $isabeline,
-  'rich-black': $rich-black,
-  'ming': $ming,
-  'middle-blue': $middle-blue,
+  'silver-tree': 		$silver-tree,
 );
 
 // set new colors
-$primary: $ming;
-$danger:  $torch-red;
-$info:    $middle-blue;
-$dirty-white: $papermint;
+$primary: $wedgewood;
+$danger:  $amaranth;
+$info:    $cello;
 
 $theme-colors: (
   "primary":  $primary,
   "danger":   $danger,
   "info":     $info,
+  "success":  $silver-tree
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
@@ -47,6 +42,8 @@ $input-btn-focus-width:         0;
 $input-btn-focus-box-shadow: none;
 $input-btn-focus-width: 0;
 $input-btn-focus-color-opacity: 0;
+
+$enable-negative-margins: true;
 
 // Import bootstrap latest
 // @import 'bootstrap';
